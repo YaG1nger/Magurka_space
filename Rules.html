@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Будиночки для відпочинку Magurka Space</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #113b20;
+            background-image: url('https://karpatium.com.ua/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBclFLIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--517085853cedcb8798df5e3f90d06a70ba553a75/%D1%87%D0%BE%D1%80%D0%BD%D0%BE%D0%B3%D0%BE%D1%80%D0%B0-%D0%BF%D0%B0%D0%BD%D0%BE%D1%80%D0%B0%D0%BC%D0%B0.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        header {
+            background:#e0e0e0c2;
+            color: #1c7a32;
+            padding: 30px 0px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+            /* ===== TEST MODE BANNER ===== */
+.test-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    z-index: 5000;
+    pointer-events: none;
+}
+
+.test-text {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 28px;
+    font-weight: bold;
+    color: red;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: flyText 15s linear infinite;
+}
+
+@keyframes flyText {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* щоб header не залазив під банер */
+header {
+    margin-top: 45px;
+}
+
+        header h1 {
+            font-size: 59px;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        main p {
+            font-size: 30px;
+        }
+
+        nav ul {
+            font-size: 30px;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: #1c7a32;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 12px;
+            transition: 0.3s;
+        }
+
+        /* ===== ВИПРАВЛЕНО: прибрано зайві відступи ===== */
+        section {
+            padding: 45px 20px;
+            max-width: 1600px;
+            margin: 0 auto 15px auto;  /* було 25px + ще margin внизу — стало тільки 15px */
+            background: #e0e0e0;
+        }
+        /* ============================================== */
+
+        h2 {
+            margin-top: 0;
+            color: #1c7a32;
+            font-size: 1.9em;
+            border-left: 5px solid #1c7a32;
+            padding-left: 12px;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        footer {
+            background-color: #919191;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* === LOGO === */
+        .fixed-logo {
+            position: absolute;
+            top: 50%;
+            left: 100px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        /* резервуємо місце під логотип */
+        header {
+            position: sticky;
+        }
+
+        .fixed-logo img {
+            width: 200px;
+            height: auto;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Будиночки для відпочинку Magurka_space</h1>
+    <nav>
+        <ul>
+            <ul>
+            <li><a href="index.html">Головна Сторінка</a></li>
+        </ul>
+    </nav>
+    <div>
+        <div class="fixed-logo">
+        <img src="LogoMs.png" alt="Magurka Space">
+    </div>
+</header>
+
+<div class="test-banner">
+    <div class="test-text">тестовий режим</div>
+</div>
+
+<main>
+    <section id="Rules">
+        <h1><a href="Oferta.html">Ознайомитись з ПУБЛІЧНОЮ ОФЕРТОЮ</a></p></h1>
+        <h2>ПРАВИЛА ПРОЖИВАННЯ ТА ГРОМАДСЬКОГО ПОРЯДКУ!</h2>
+        <p>ТИХІ ГОДИНИ. Для комфортного та приємного відпочинку всіх гостей, будь ласка, дотримуйтесь мінімального рівня шуму в період з 22:00 по 7:00.</p>
+        <p>ДЯКУЄМО, ЩО ДБАЙЛИВО СТАВИТЕСЬ ДО МАЙНА, використовуєте його за  призначенням.
+ПАМ’ЯТАЙТЕ, ЩО САМЕ ВИ НЕСЕТЕ МАТЕРІАЛЬНУ ВІДПОВІДАЛЬНІСТЬ за втрату ключа та псування майна. У випадку пошкодження майна в будиночку та на території  гість зобов’язаний повідомити про це за номером 097 423 43 48 та відшкодувати витрати, пов’язані з простоєм будинку на час усунення пошкоджень.</p>
+        <p>КАТЕГОРИЧНО ЗАБОРОНЯЄТЬСЯ ПАЛИТИ В БУДИНКУ. За паління в будинку стягується штраф в розмірі 1000 грн. Просимо користуватися спеціальними облаштованими місцями для паління.</p>
+        <p>КОЖЕН З ГОСТЕЙ MAGURKA SPACЕ: несе відповідальність за втрату власних цінних речей. У разі виявлення забутих речей ми негайно повідомляємо про це власника, якщо він відомий. Забуті речі зберігаються у нас протягом 6 місяців. У разі втрати речей гість негайно повідомляє про це адміністрацію будинку, відповідає за збереження власних транспортних засобів на паркінгу.</p>
+        <p>При виході з будинку всі електроприлади повинні бути вимкнені. У будинку забороняється використовувати трійники і подовжувачі, потужні електроприлади, у тому числі нагрівачі, крім випадків, коли ці прилади входять в устаткування будинку.
+У разі відсутності електропостачання MAGURKA_SPACE буде працювати на альтернативному живлені. Просимо обмежити використання електроприладів в будинку для того, щоб подовжити час використання акумулятора! 
+РАДО ДОПОМОЖЕМО при виникненні питань: 097 423 43 48 – НАДІЯ</p>
+        <p>АКТИВНИЙ  ВІДПОЧИНОК</p>
+        <p>- кінні прогулянки 097 536 83 79</p>
+        <p>- рафтинг 098 568 56 85</p>
+        <p>- джипінг 068 620 55 85</p>
+        <p>ДЕ ПОЇСТИ</p>
+        <p>- місцева господиня з радістю приготує страви з домашніх продуктів</p>
+        <p>- Корчма у Мойши - неймовірно смачна форель в сметані</p>
+        <p>- Форельхілл - можна ловити форель і її відразу приготують</p>
+        <p>- Колиба Водограй Карпат - найближче до нас, гуцульська домашня кухня</p>
+        <p>А ще у Верховині працює крутезна доставка БДЖІЛКА – 096 08 13 050</p>
+    </section>
+</main>
+
+<footer>
+    © 2025 Magurka_space. Всі права захищені.
+</footer>
+
+</body>
+</html>

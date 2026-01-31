@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Будиночки для відпочинку Magurka Space - test Site</title>
+    <link rel="icon" type="image/png" sizes="128x128" href="logo-magurka 128x12828x12.png">
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #113b20;
+        background-image: url('https://karpatium.com.ua/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBclFLIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--517085853cedcb8798df5e3f90d06a70ba553a75/%D1%87%D0%BE%D1%80%D0%BD%D0%BE%D0%B3%D0%BE%D1%80%D0%B0-%D0%BF%D0%B0%D0%BD%D0%BE%D1%80%D0%B0%D0%BC%D0%B0.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main { flex: 1; }
+
+    header {
+        background:#e0e0e0c2;
+        margin-left: 0px;
+        color: #1c7a32;
+        padding: 30px 0px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 { font-size: 59px; margin: 0; letter-spacing: 1px; }
+
+    .hero img {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+       -ms-user-select: none;
+
+        -webkit-user-drag: none;
+
+        pointer-events: auto;
+}
+
+    /* ===== TEST MODE BANNER ===== */
+.test-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    z-index: 5000;
+    pointer-events: none;
+}
+
+.test-text {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 28px;
+    font-weight: bold;
+    color: red;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: flyText 15s linear infinite;
+}
+
+@keyframes flyText {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* щоб header не залазив під банер */
+header {
+    margin-top: 45px;
+}
+
+
+    nav ul {
+        font-size: 30px;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    nav a {
+        color: #1c7a32;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 6px 12px;
+        transition: 0.3s;
+    }
+
+    nav a:hover { background-color: rgba(255,255,255,0.2); }
+
+    .hero { max-width: 1980px; height: 1020px; overflow: hidden; margin: 60px auto; padding: 0; }
+    .hero img { width: 100%; height: 100%; }
+
+    section {
+        padding: 45px 20px;
+        max-width: 1600px;
+        margin: auto;
+        margin-bottom: 25px;
+        background: #e0e0e0;
+    }
+
+    h2 {
+        margin-top: 0;
+        color: #1c7a32;
+        font-size: 1.9em;
+        border-left: 5px solid #1c7a32;
+        padding-left: 12px;
+    }
+
+    /* === Будиночки === */
+    .houses-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 0px;
+    }
+
+    .houses-row img {
+        flex: 1 1 250px;
+        height: 600px;
+        object-fit: cover;
+        border: 2px solid #646464;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .houses-row img:hover { transform: scale(1.05); }
+
+    .house-description {
+        margin: 0 auto;
+        text-align: center;
+        font-size: 30px;
+        color: #113b20;
+    }
+
+    /* === Галерея === */
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 0px;
+    }
+
+    .gallery img {
+        flex: 1 1 250px;
+        height: 600px;
+        object-fit: cover;
+        border: 2px solid #646464;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .gallery img:hover { transform: scale(1.05); }
+
+    cite {
+        display: block;
+        margin-top: 10px;
+        text-align: right;
+        font-weight: bold;
+        color: #0f5622;
+    }
+
+    footer {
+        background-color: #919191;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: auto;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* === Аккордеон === */
+    .accordion-item {
+        margin-bottom: 10px;
+        border: 1px solid #1c7a32;
+        border-radius: 3px;
+        background: #f0f3f0;
+        overflow: hidden;
+    }
+
+    .accordion-button {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 12px 15px;
+        font-size: 1.1em;
+        font-weight: bold;
+        border: none;
+        background: #e4e9e4;
+        cursor: pointer;
+        outline: none;
+        transition: background 0.3s;
+    }
+
+    .accordion-button:hover { background: #d3d9d3; }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding: 0 15px;
+        background: #f9f9f9;
+    }
+
+    .accordion-content p { margin: 10px 0; }
+
+    .accordion-content p {
+        font-size: 25px;
+    }
+
+    .accordion-button span {
+        font-size: 20px;
+    }
+
+#kontakty p {
+    font-size: 28px; 
+}
+
+
+#kontakty span {
+    font-size: 30px; 
+}
+
+
+    .arrow {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+    .arrow.open { transform: rotate(180deg); }
+
+/* Контейнер для відкритого зображення */
+.lightbox {
+    position: fixed; /* закріплюємо за екраном */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8); /* затемнення фону */
+    display: none; /* СХОВАТИ за замовчуванням */
+    justify-content: center;
+    align-items: center;
+    z-index: 5000; /* вище за соцкнопки */
+    cursor: pointer;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.lightbox-control {
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.lightbox-control:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.lightbox-control.prev { left: 30px; top: 50%; transform: translateY(-50%); }
+.lightbox-control.next { right: 30px; top: 50%; transform: translateY(-50%); }
+.lightbox-control.close { top: 30px; right: 30px; font-size: 60px; transform: none; }
+
+.social-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* відстань між кнопками */
+    z-index: 1000;
+}
+
+.social-btn {
+    width: 100px;  
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+}
+
+/* Для TikTok градієнт як у TG */
+.tiktok-btn {
+    background: linear-gradient(135deg, #00f2ea, #ff0050);
+}
+
+/* Для Instagram градієнт */
+.ig-btn {
+    background: radial-gradient(circle at 30% 110%,
+            #fdf497 0%, #fdf497 5%,
+            #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.ig-btn svg {
+    width: 60%;
+    height: 60%;
+}
+.tiktok-btn img, .tg-btn img {
+    width: 60%;
+    height: 60%;
+}
+
+.tg-btn {
+    position: relative; /* щоб спозиціонувати діалог відносно кнопки */
+}
+
+/* Діалог */
+.tg-popup {
+    position: absolute;
+    right: 120%; /* ліворуч від кнопки */
+    top: 50%;    /* по центру кнопки по вертикалі */
+    transform: translateY(-50%); /* точно по центру по вертикалі */
+    background: #1f7a38;
+    color: white;
+    font-size: 25px;
+    padding: 10px 15px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+/* Поява при наведенні */
+.tg-btn:hover .tg-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(-5px); /* трохи підсунемо до кнопки */
+}
+
+/* === LOGO === */
+.fixed-logo {
+    position: absolute;        /* було fixed → стало absolute */
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* резервуємо місце під логотип */
+header {
+    position: sticky;
+}
+
+.fixed-logo img {
+    width: 300px;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="test-banner">
+    <div class="test-text">тестовий режим</div>
+</div>
+
+<header>
+    <div class="fixed-logo">
+        <img src="LogoMs.png" alt="Magurka Space">
+    </div>
+
+    <h1>Будиночки для відпочинку Magurka_space</h1>
+    <nav>
+        <ul>
+            <li><a href="#nashi-budinochky">Будиночки</a></li>
+            <li><a href="#shho-robyty">Дозвілля</a></li>
+            <li><a href="#galereya">Галерея</a></li>
+            <li><a href="Rules.html">Правила</a></li>
+            <li><a href="#question">Часті запитання</a></li>
+            <li><a href="#kontakty">Контакти</a></li>
+</header>
+
+<div class="hero">
+    <img src="Hero_3.png" alt="Віджетне фото">
+</div>
+
+<main>
+<section id="nashi-budinochky">
+    <h2>Огляд будиночків</h2>
+    <div class="houses-row">
+        <img src="Photo-House2.png" alt="Будиночок 2">
+        <img src="Photo-House3.jpg" alt="Будиночок 3">
+        <img src="Photo-House4.png" alt="Будиночок 4">
+        <img src="Photo-House5.jpg" alt="Будиночок 5">
+        <img src="Photo-House6.jpg" alt="Будиночок 6">
+        <img src="Photo-House7.jpg" alt="Будиночок 7">
+        <img src="Photo-House8.jpg" alt="Будиночок 8">
+    </div>
+    <div class="house-description">
+        <p>Magurka_space - це 6 комфортабельних та гостинних будиночків, з тераси яких відкривається неймовірно красивий краєвид на Чорногірський хребет. Кожен будиночок має кухню, повністю укомплектовану всім необхідним для приготування їжі. В кожному будинку є: індукційна плита, витяжка, холодильник, електрочайник, набір кастрюль та сковорідок, посуд та прибори. Взимку у нас тепло, так як є обігрівач, кондиціонер на камін-пічка, який створить неймовірно романтичну атмосферу з потріскуванням вогню. В будиночках є смарт-проектор, настільні ігри та книги. В санвузлі є душова кабіна з тропічним душем, рушникосушка, фен для волосся, індиаідуальні засоби гігієни, шампуль, рідке мило для рук, туалетний папір, чисті рушники, халати та капці. На території, біля кожного будиночку, є мангальна зона, шампури та решітка для барбекю. Також кожен будиночок має велику терасу на якій знаходиться чан-джакузі.</p>
+    </div>
+</section>
+
+<section id="shho-robyty">
+    <h2>Дозвілля</h2>
+
+    <div class="photo-with-description">
+        <img src="Ideas-1.jpg" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Відпочинок в чані-джакузі</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">Чан-джакузі з підсвіткою, є біля кожного будиночку на терасі.
+Вартість чану 2000 грн за сеанс, можете користуватися цілий вечірю 
+Про те, що хочете замовити чан, просимо попередити за 3-4 години, щоб ми могли його для вас підготувати та нагріти.
+Ми вам готуємо чан, доводимо до потрібної температури, орієнтовно на 18:00, далі ми залишаємо вам дрова і ви самі підтримуєте вогонь в пічці, хоч цілу ніч.</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-2.PNG" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Приготувати страви на вогні</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">Біля будиночку є мангальна зона, де можна приготувати м'ясо, рибу, овочі чи навіть куліш,  на вогні, є шампури, решітка для барбекю та казан. 
+ Дрова входять у вартість прооживання. 
+Тільки уявіть: аромат м’яса чи риби поєднується з неймовірно красивими краєвидами.
+Відпочити на терасі, споглядаючи, як за  Чорногірський хребет сідає сонечко.</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-3.jpg" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Почитати книжку</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">В будиночку є кілька книжок художньої та мативаційної літератури, можна заварити собі ароматного карпатського чаю, та поринути у світ пригод.</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-12.JPG" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Перегляд улюблених фільмів на проекторі</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">В будиночку є смарт-проектор, підключено Megogo та Netflix. Опускаєте рулонну штору та насолоджуєтесь переглядом улюблених фільмів чи передач.
+Приємного перегляду!</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-4.PNG" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Погойдатися на великій гойдалці.</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">На території є гойдалка висотою 6 метрів, з неймовірним видом на Чорногірський хребет. Беріть телефон та робіть багато фото і відео.</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-5.PNG" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Прогулятися до лісу</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">За триста метрів, вище будиночків, є смерековий ліс, де можна прогулятися, вдихаючи найчистіше повітря. В літню пору, можна поласувати ягодами лісової малини та ожини.</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-13.jpg" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Піші прогулянки в гори.</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">Досить легкий маршрут на хребет Кринта (через присілок Плай) в одну сторону – 6 км, на вершині є колиба, сироварня, де можна  подивитися, як готують гуцульську бринзу, та, звісно, скуштувати.</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-6.PNG" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Покататися на джипі</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">Дуже рекомендуємо відвідати Писаний Камінь- місце сили,  саме Джип Тур, організовує туди поїздки  і не тільки туди: гора, Біла Кобила, полонина Псарівка, село Снідавка (велика статуя Ісуса Христа і терношорська лада), гора Бенджола (велика гуцульська гойдалка), тощо.</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-7.PNG" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Покататися на квадроциклі</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">Лише на перевірених  маршрутах, де дозволено кататися, і з перевіреними гідами.</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-8.PNG" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Відвідати музеї</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">Відчути автентичність гуцульської культури та дізнатися більше про її духовну й історичну спадщину допоможуть музеї. У Верховинському районі величезна кількість хат-музеїв: про деякі можна почути на кожному кроці, інші приховані від туристів. Найпопулярніші:  Музей гуцульської магії, музей фільму Тіні забутих предків, ці два музеї- по дорозі до наших будиночків!  Музей штопора, музей-сироварня Хата-стая, музей кінофільму Олекса Довбуш, музей Ліжникарства, музей Вишивки та багато інших. У Верховині їх є близько 40!</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-10.PNG" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Відвідати місцевий ринок</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">Базарний день у четвер, місцеві жителі спускаються з гір, щоб продати свій крам. Тут можна придбати як сувеніри, так і одяг витканий власноруч місцевими, а також молочні продукти, сири, наливки власного виробництва, гриби та ягоди зібрані в лісі.</p>
+        </div>
+    </div>
+
+    <div class="photo-with-description">
+        <img src="Ideas-11.jpg" alt="Опис фото">
+
+        <div class="description">
+            <h3 class="title">Відпочинок біля каміну</h3>
+            <p class="text">ㅤ</p>
+            <p class="text">Уявіть потріскування вогню, затишна атмосфера та спокій. Ви сидите з горнятком духмяного карпатського чаю і насолоджуєтесь незабутнім релаксом.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+#shho-robyty {
+    padding: 20px;
+}
+
+.photo-with-description {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.photo-with-description img {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.description {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    flex: 1;
+    height: 380px;
+}
+
+/* Назва */
+.description .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+}
+
+/* Опис */
+.description .text {
+    font-size: 30px;
+    margin: 0;
+}
+        /* ===== TELEGRAM FLOATING BUTTON ===== */
+.tg-widget {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+}
+
+.tg-btn {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .tg-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.tg-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+}
+
+.tg-popup {
+    margin-left: 15px;
+    padding: 0px 20px;
+    background: linear-gradient(135deg, #1f7a38, #45b06b);
+    color: #ffffff;
+    font-size: 35px;
+    white-space: nowrap;
+    border-radius: 18px 18px 4px 18px;
+    padding: 25px 20px;
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.tg-widget:hover .tg-popup {
+    opacity: 1;
+    transform: translateX(0);
+}
+</style>
+
+<section id="galereya">
+    <h2>Галерея</h2>
+    <div class="gallery">
+        <img src="Gallery-1.jpg" alt="Фото з галереї 1">
+        <img src="Gallery-3.jpg" alt="Фото з галереї 2">
+        <img src="Gallery-4.jpg" alt="Фото з галереї 3">
+        <img src="Gallery-5.jpg" alt="Фото з галереї 4">
+        <img src="Gallery-6.jpg" alt="Фото з галереї 5">
+        <img src="Gallery-7.jpg" alt="Фото з галереї 6">
+        <img src="Gallery-8.jpg" alt="Фото з галереї 7">
+        <img src="Gallery-9.jpg" alt="Фото з галереї 8">
+    </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-control prev" id="prev">&#10094;</button>
+    <img id="lightbox-img" src="">
+    <button class="lightbox-control next" id="next">&#10095;</button>
+    <button class="lightbox-control close" id="close">&times;</button>
+</div>
+
+<section id="question">
+<h2>Часті запитання</h2>
+<div class="accordion">
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Де ви знаходитесь?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Наша адреса: <a href="https://maps.app.goo.gl/9BEUoBTTno6V4LKRA">Івано-Франківська область, селище Верховина, присілок Магурка, 7а</a></p>
+        </div>
+    </div>
+        <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Як забронювати будиночок?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Дізнатися вільні дати та забронювати  будиночок ви можете, написавши нам на Telegram чи Viber +380970701750</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Коли заселення і виселення?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Заселення після 15:00, виселення до 11:00.</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Що входить у вартість будиночку?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Будиночок повністю обладнаний для комфортного перебування 2 дорослих, за потреби можна розмістити  + двоє дітей, але врахуйте, що всі спальні місця знаходяться в одній кімнаті . На кухні є необхідна побутова техніка та посуд для приготування та зберігання їжі, є очищена питна вода. В санвузлі є косметичні засоби гігієни, чисті рушники та халати, а також одноразові капці, фен, аптечка. В будиночку є кондиціонер та проектор для перегляду улюблених фільмів, пічка-камін для романтичних вечорів. А ще кожен будиночок має велику терасу, для споглядання неймовірно красивих краєвидів. Є мангал, шампури, решітка для барбекю та дрова!</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Чи є у вас чан на території "Знак Питання"</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>У нас чан-джакузі є біля кожного будиночку на терасі. Вартість чану 2000 грн за сеанс, можете користуватися цілий вечір. Про те, що хочете замовити чан, просимо попередити за 3-4 години, щоб ми могли його для вас підготувати та нагріти. Ми вам готуємо чан, доводимо до потрібної температури, орієнтовно на 18:00, далі ми залишаємо вам дрова і ви самі підтримуєте вогонь в пічці, хоч цілу ніч.</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Як до вас доїхати?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Маємо попередити, що ми знаходимося майже на вершині гори, то доїзд до нас, в період дощів чи снігу, можливий лише на повнопривідному авто і з дуже вправним водієм.За умови сухої погоди до нас виїде кроссовер, кліренс не менше 18-20 см. Тому, якщо ви їдете до нас на власному автомобілі, рекомендуємо залишити ваше авто на стоянці навпроти Музею гуцульської магії(безкоштовна парковка), на території готелю Водограй Карпат (100 грн/ніч)по дорозі до нас, взяти таксі-джип (вартість 700 грн) він з легкістю доставить вас до нашої локації. Про стан дороги, просимо уточнити у нашої керуючої в день заїзду.</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Чи можна замовити трансфер?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Трансферу від комплексу немає, але є домовленість з компанією Джип-Тур про знижену ціну на вивіз наших гостей на гору. Вони також можуть організувати доїзд з ж/д вокзалу у Ворохті.</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Чи можна до вас з домашніми улюбленцями</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Так, до нас можна з домашніми улюбленцями, доплата за хвостика +250 грн за ніч. Єдине прохання, не залишати самого в будиночку, бо вони починають сумувати і робити шкоду. В разі пошкодженого майна, компенсація повної вартості пошкодженої речі лягає на власника тварини.</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Чи потрібна передоплата?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Так, для підтвердження бронювання необхідно внести передоплату в розмірі 50% від вартості проживання. Оплату приймаємо на рахунок ФОП, доплата решти в день заселення.</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Чи потрібно доплачувати за дітей?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Дітки до 6-ти років проживають безкоштовно, без окремого спального місця, тобто з батьками на ліжку. Проживання дітей,  які старше 6-ти років, вартує +500 грн за ніч. Для розміщення надається диван, що розкладається,  шириною 128 см.</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Як можна скасувати бронювання?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Якщо попередите нас за 14 днів до заїзду, ми повернемо вам передоплату в повному обсязі, більше ніж за 6 днів до заїзду повертається 50% передоплати, менше як 6 днів до заїзду – передоплата не повертається.</p>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-button">
+            <span>Як з харчуванням?</span>
+            <span class="arrow">&#9650;</span>
+        </button>
+        <div class="accordion-content">
+            <p>Щодо харчування: можете приготувати на кухні в будиночку та на мангалі, в будиночку є базові спеції (сіль/перець, олія) чай, кава, цукор. Місцеві господині Ірина та Василина з радістю приготують сніданки та місцеві страви і принесуть в будиночок (меню та контакти господинь є в будиночку). Найближча колиба Водограй Карпат знаходиться за 2,5 км. там смачна домашня, гуцульська кухня! А ще у Верховині працює крутезна доставка Бджілка - доставить будь які страви, з будь якої колиби на гору.</p>
+        </div>
+    </div>
+</div>
+</section>
+    <div class="accordion">
+
+    </div>
+</section>
+
+<section id="kontakty">
+    <h2>Контакти</h2>
+    <p>📍 Локація: <a href="https://maps.app.goo.gl/9BEUoBTTno6V4LKRA">Івано-Франківська область, селище Верховина, присілок Магурка, 7а</a></p>
+    <p>📞 Телефон: <a href="tel:+380970701750">+38 097 070 17 50</a></p>
+    <p>📩 Email: 
+        <span style="font-weight:500; color:#0066cc;">magurkaspace@gmail.com</span>
+        <button id="copy-btn" 
+                onclick="copyToClipboard()" 
+                style="margin-left: 12px; padding: 4px 10px; font-size: 0.9em; 
+                       background: #f0f0f0; border: 1px solid #ccc; border-radius: 6px;
+                       cursor: pointer; transition: all 0.2s;">
+            Скопіювати
+        </button>
+    </p>
+</section>
+
+<script>
+function copyToClipboard() {
+    const email = "magurkaspace@gmail.com";
+    const btn = document.getElementById("copy-btn");
+    const originalText = btn.textContent;
+
+    navigator.clipboard.writeText(email)
+        .then(() => {
+            btn.textContent = "Скопійовано!";
+            btn.style.background = "#d4edda";
+            btn.style.borderColor = "#28a745";
+            btn.style.color = "#155724";
+
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = "#f0f0f0";
+                btn.style.borderColor = "#ccc";
+                btn.style.color = "";
+            }, 2200); // 2.2 секунди
+        })
+        .catch(err => {
+            console.error("Не вдалося скопіювати", err);
+            btn.textContent = "Помилка";
+            btn.style.background = "#f8d7da";
+            btn.style.borderColor = "#dc3545";
+            btn.style.color = "#721c24";
+
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = "#f0f0f0";
+                btn.style.borderColor = "#ccc";
+                btn.style.color = "";
+            }, 2200);
+        });
+}
+</script>
+
+</main>
+
+<footer>© 2025 Magurka_space. Всі права захищені.</footer>
+
+<script>
+// === Аккордеон ===
+const accButtons = document.querySelectorAll('.accordion-button');
+accButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const arrow = button.querySelector('.arrow');
+        document.querySelectorAll('.accordion-content').forEach(c => { if(c!==content) c.style.maxHeight=null; });
+        document.querySelectorAll('.arrow').forEach(a => { if(a!==arrow) a.classList.remove('open'); });
+        if(content.style.maxHeight){ content.style.maxHeight=null; arrow.classList.remove('open'); }
+        else { content.style.maxHeight=content.scrollHeight+"px"; arrow.classList.add('open'); }
+    });
+});
+
+// === Lightbox для будинків та галереї ===
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('close');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+const allImages = [...document.querySelectorAll('.houses-row img'), ...document.querySelectorAll('.gallery img')];
+let currentIndex = 0;
+
+allImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        currentIndex = index;
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+    });
+});
+
+closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+    lightboxImg.src = allImages[currentIndex].src;
+});
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % allImages.length;
+    lightboxImg.src = allImages[currentIndex].src;
+});
+lightbox.addEventListener('click', e => { if(e.target===lightbox) lightbox.style.display='none'; });
+document.addEventListener('keydown', e => {
+    if(lightbox.style.display==='flex'){
+        if(e.key==='ArrowLeft') prevBtn.click();
+        if(e.key==='ArrowRight') nextBtn.click();
+        if(e.key==='Escape') closeBtn.click();
+    }
+});
+</script>
+
+<!-- Контейнер для всіх кнопок -->
+<div class="social-buttons">
+    <!-- TikTok кнопка (найвище) -->
+    <a href="https://www.tiktok.com/@Magurka_space" target="_blank" class="social-btn tiktok-btn">
+        <img src="Tik-tok-logo.png" alt="TikTok">
+    </a>
+
+    <!-- Instagram кнопка (посередині) -->
+    <a href="https://www.instagram.com/magurka_space" target="_blank" class="social-btn ig-btn" aria-label="Instagram">
+        <svg viewBox="0 0 448 512" width="64" height="64" fill="white">
+            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9
+            0 63.6 51.3 114.9 114.9 114.9
+            63.6 0 114.9-51.3 114.9-114.9
+            0-63.6-51.3-114.9-114.9-114.9zm0
+            189.6c-41.3 0-74.7-33.4-74.7-74.7
+            0-41.3 33.4-74.7 74.7-74.7
+            41.3 0 74.7 33.4 74.7 74.7
+            0 41.3-33.4 74.7-74.7 74.7zm146.4-194.3
+            c0 14.9-12 26.8-26.8 26.8
+            -14.9 0-26.8-12-26.8-26.8
+            0-14.9 12-26.8 26.8-26.8
+            14.9 0 26.8 12 26.8 26.8zm76.1
+            27.2c-1.7-35.7-9.9-67.3-36.2-93.6
+            -26.2-26.2-57.9-34.4-93.6-36.2
+            -37-2.1-147.9-2.1-184.9 0
+            -35.7 1.7-67.3 9.9-93.6 36.2
+            -26.2 26.2-34.4 57.9-36.2 93.6
+            -2.1 37-2.1 147.9 0 184.9
+            1.7 35.7 9.9 67.3 36.2 93.6
+            26.2 26.2 57.9 34.4 93.6 36.2
+            37 2.1 147.9 2.1 184.9 0
+            35.7-1.7 67.3-9.9 93.6-36.2
+            26.2-26.2 34.4-57.9 36.2-93.6
+            2.1-37 2.1-147.9 0-184.9zm-48.5
+            224.7c-7.8 19.6-22.9 34.7-42.6 42.6
+            -29.5 11.7-99.5 9-132.4 9
+            -32.9 0-102.9 2.6-132.4-9
+            -19.6-7.8-34.7-22.9-42.6-42.6
+            -11.7-29.5-9-99.5-9-132.4
+            0-32.9-2.6-102.9 9-132.4
+            7.8-19.6 22.9-34.7 42.6-42.6
+            29.5-11.7 99.5-9 132.4-9
+            32.9 0 102.9-2.6 132.4 9
+            19.6 7.8 34.7 22.9 42.6 42.6
+            11.7 29.5 9 99.5 9 132.4
+            0 32.9 2.6 102.9-9 132.4z"/>
+        </svg>
+    </a>
+
+<!-- Telegram кнопка -->
+<a href="https://t.me/Magurka_space" target="_blank" class="social-btn tg-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+    <span class="tg-popup">Хочу забронювати</span>
+</a>
+
+</div>
+
+</body>
+</html>
