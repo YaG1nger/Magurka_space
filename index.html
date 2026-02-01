@@ -394,16 +394,24 @@ body {
     overflow-x: hidden; /* прибираємо горизонтальний скрол */
 }
 
-.site-wrapper {
-    transform: scale(0.67);
-    transform-origin: top left; /* масштаб від лівого верхнього кута */
-    width: calc(100% / 0.67);    /* компенсуємо масштаб */
-    height: calc(100vh / 0.67);  /* компенсуємо вертикаль */
+@media (max-width: 768px) {
+
+    /* Ховаємо текстові написи в header */
+    header h1,
+    header h2,
+    header p,
+    header .header-text {
+        display: none;
+    }
+
+    /* Але правила / меню залишаються */
+    nav,
+    nav ul,
+    nav li,
+    nav a {
+        display: flex;
+    }
 }
-    <div class="site-wrapper">
-</style>
-</head>
-<body>
 
 <div class="test-banner">
     <div class="test-text">тестовий режим</div>
@@ -976,6 +984,7 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
+
 
 
 
