@@ -391,12 +391,15 @@ header {
     pointer-events: none;
 }
 body {
-    transform: scale(0.80);       /* зменшення сайту */
-    transform-origin: top left;   /* прив’язка до лівого верхнього кута */
-    width: 149.25%;               /* компенсуємо зменшення */
-    height: calc(100vh / 0.80);   /* щоб не було зайвої прокрутки */
+    overflow-x: hidden; /* прибираємо горизонтальний скрол */
 }
 
+.site-wrapper {
+    transform: scale(0.7);
+    transform-origin: top left; /* масштаб від лівого верхнього кута */
+    width: calc(100% / 0.7);    /* компенсуємо масштаб */
+    height: calc(100vh / 0.7);  /* компенсуємо вертикаль */
+}
 
 </style>
 </head>
@@ -973,6 +976,7 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
+
 
 
 
