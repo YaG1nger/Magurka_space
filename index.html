@@ -391,6 +391,54 @@ header {
     pointer-events: none;
 }
 
+/* ===== Базова адаптивність для телефонів ===== */
+
+/* Забезпечує масштабування під екран телефону */
+meta[name="viewport"] {
+    content: width=device-width, initial-scale=1.0;
+}
+
+/* Основні стилі для маленьких екранів */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Збільшити шрифт для зручності читання */
+        padding: 10px;
+    }
+
+    header, nav {
+        display: flex;
+        flex-direction: column; /* Меню зверху вниз */
+        align-items: center;
+    }
+
+    img {
+        max-width: 100%; /* Картинки не виходять за межі екрану */
+        height: auto;
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column; /* Галерея стовпчиком */
+        gap: 10px;
+    }
+
+    .button, .tg-widget {
+        width: 90%; /* Кнопки займають майже всю ширину */
+        text-align: center;
+        margin: 5px auto;
+    }
+
+    .content {
+        padding: 5px;
+    }
+
+    footer {
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -964,3 +1012,4 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
+
