@@ -390,6 +390,12 @@ header {
     -webkit-user-drag: none;
     pointer-events: none;
 }
+/* === Масштаб сайту до 67% === */
+body {
+    transform: scale(0.67);       /* зменшуємо весь сайт до 67% */
+    transform-origin: top left;   /* масштаб починається з лівого верхнього кута */
+    width: 149.25%;               /* корекція ширини, щоб не обрізалося */
+}
 
 </style>
 </head>
@@ -964,6 +970,7 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
+
 
 
 
