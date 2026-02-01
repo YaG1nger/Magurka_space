@@ -391,97 +391,6 @@ header {
     pointer-events: none;
 }
 
-/* ===== Базова адаптивність для телефонів ===== */
-
-/* Забезпечує масштабування під екран телефону */
-meta[name="viewport"] {
-    content: width=device-width, initial-scale=1.0;
-}
-
-/* Основні стилі для маленьких екранів */
-@media (max-width: 768px) {
-    /* Будиночки та галерея */
-    .houses-row, .gallery {
-        flex-direction: column; /* фото один під одним */
-        gap: 10px;
-    }
-
-    .houses-row img, .gallery img {
-        flex: none;      /* прибираємо flex:1 1 250px */
-        width: 100%;     /* картинка займає всю ширину */
-        height: auto;    /* автоматична висота */
-    }
-
-    .house-description {
-        font-size: 20px; /* менший текст для телефону */
-    }
-}
-
-@media (max-width: 768px) {
-    .photo-with-description {
-        flex-direction: column; /* картинка над текстом */
-    }
-
-    .photo-with-description img {
-        width: 100%;
-        height: auto;
-    }
-
-    .description {
-        width: 100%;
-        height: auto;
-        font-size: 20px;
-    }
-
-    .description .title {
-        font-size: 24px;
-    }
-
-    .description .text {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 768px) {
-    .social-buttons {
-        flex-direction: row; /* кнопки в ряд */
-        bottom: 10px;
-        right: 10px;
-        gap: 10px;
-    }
-
-    .social-btn {
-        width: 60px;
-        height: 60px;
-    }
-
-    .tg-btn {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    .fixed-logo {
-        width: 180px;
-        left: 10px;
-        top: 10px;
-        transform: none;
-    }
-
-    header h1 {
-        font-size: 28px;
-        padding: 10px;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        font-size: 20px;
-        gap: 10px;
-    }
-}
-
 </style>
 </head>
 <body>
@@ -1055,5 +964,6 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
+
 
 
