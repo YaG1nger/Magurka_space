@@ -538,6 +538,13 @@ body {
     }
 }
 
+/* Ховаємо меню в header ТІЛЬКИ на телефонах */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+
 </style>
     
 <div class="test-banner">
@@ -563,20 +570,103 @@ body {
 
 
 <header>
-    <div class="fixed-logo">
-        <img src="LogoMs.png" alt="Magurka Space">
-    </div>
+    <div class="header-container">
+        <!-- Логотип ліворуч -->
+        <div class="logo">
+            <img src="LogoMs.png" alt="Magurka Space">
+            <h1>Magurka_space</h1>
+        </div>
 
-    <h1>Будиночки для відпочинку Magurka_space</h1>
-    <nav>
-        <ul>
-            <li><a href="#nashi-budinochky">Будиночки</a></li>
-            <li><a href="#shho-robyty">Дозвілля</a></li>
-            <li><a href="#galereya">Галерея</a></li>
-            <li><a href="Rules.html">Правила</a></li>
-            <li><a href="#question">Часті запитання</a></li>
-            <li><a href="#kontakty">Контакти й Соцмережі</a></li>
+        <!-- Навігація праворуч -->
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#nashi-budinochky">Будинки</a></li>
+                <li><a href="#shho-robyty">Дозвілля</a></li>
+                <li><a href="#galereya">Галерея</a></li>
+                <li><a href="Rules.html">Правила</a></li>
+                <li><a href="#question">Часті Запитання</a></li>
+                <li><a href="#kontakty">Контакти</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
+
+<style>
+/* === Header контейнер === */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(224,224,224,0.8);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    padding: 15px 20px;
+}
+
+/* Флекс-контейнер для логотипа + навігації */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1600px;
+    margin: auto;
+}
+
+/* Логотип ліворуч */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Заголовок поруч з логотипом */
+.logo h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #1c7a32;
+}
+
+/* Навігаційні посилання праворуч */
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #1c7a32;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0f5220;
+}
+
+/* === Адаптивність для мобільних === */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
 
 <div class="hero">
     <img src="Hero_3.png" alt="Віджетне фото">
@@ -1171,5 +1261,4 @@ document.addEventListener('keydown', e => {
 </div>
 
 </body>
-
 </html>
