@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Будиночки для відпочинку Magurka Space - test Site</title>
     <link rel="icon" type="image/png" sizes="128x128" href="logo-magurka 128x12828x12.png">
+
+    <script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+function closeMenu() {
+  document.getElementById("mobileMenu").classList.remove("active");
+}
+</script>
+
 <style>
     body {
         font-family: 'Arial', sans-serif;
@@ -394,11 +405,99 @@ body {
     overflow-x: hidden; /* прибираємо горизонтальний скрол */
 }
     
+/* === BURGER MENU (MOBILE ONLY) === */
+.burger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 32px;
+  height: 24px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 6000;
+}
+
+.burger span {
+  height: 4px;
+  background: #113b20;
+  border-radius: 2px;
+}
+
+/* MOBILE MENU PANEL */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 75%;
+  height: 100vh;
+  background: #e0e0e0;
+  padding: 100px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: left 0.3s ease;
+  z-index: 5000;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: #113b20;
+}
+
+/* ACTIVE */
+.mobile-menu.active {
+  left: 0;
+}
+
+/* === MOBILE RULES === */
+@media (max-width: 768px) {
+
+  nav ul {
+    display: none; /* ховаємо старе меню */
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  header h1 {
+    font-size: 34px;
+    padding: 0 10px;
+  }
+
+  .fixed-logo {
+    display: none; /* логотип не заважає */
+  }
+}
+
+
 </style>
     
 <div class="test-banner">
     <div class="test-text">тестовий режим</div>
 </div>
+
+<!-- BURGER BUTTON -->
+<div class="burger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#nashi-budinochky" onclick="closeMenu()">Будиночки</a>
+  <a href="#shho-robyty" onclick="closeMenu()">Дозвілля</a>
+  <a href="#galereya" onclick="closeMenu()">Галерея</a>
+  <a href="Rules.html" onclick="closeMenu()">Правила</a>
+  <a href="#question" onclick="closeMenu()">Часті запитання</a>
+  <a href="#kontakty" onclick="closeMenu()">Контакти</a>
+</nav>
+
 
 <header>
     <div class="fixed-logo">
@@ -967,15 +1066,3 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
