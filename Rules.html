@@ -154,23 +154,163 @@ header {
             -webkit-user-drag: none;
             pointer-events: none;
         }
+
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Будиночки для відпочинку Magurka_space</h1>
-    <nav>
-        <ul>
+    <div class="header-container">
+        <!-- Логотип + назва -->
+        <div class="logo-title">
+            <img src="LogoMs.png" alt="Magurka Space">
+            <span class="site-title">Будиночки для відпочинку Magurka_space</span>
+        </div>
+
+        <!-- Меню для ПК -->
+        <nav class="nav-desktop">
             <ul>
+                <li><a href="index.html">Головна Сторінка</a></li>
+                <li><a href="Oferta.html">Оферта</a></li>
+            </ul>
+        </nav>
+
+        <!-- Гамбургер для мобільних -->
+        <div class="hamburger" onclick="toggleMobileMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Меню для мобільних -->
+    <nav class="nav-mobile">
+        <ul>
             <li><a href="index.html">Головна Сторінка</a></li>
+            <li><a href="Oferta.html">Оферта</a></li>
+            <li><a href="#Rules">Правила</a></li>
         </ul>
     </nav>
-    <div>
-        <div class="fixed-logo">
-        <img src="LogoMs.png" alt="Magurka Space">
-    </div>
 </header>
+
+<style>
+/* Header */
+header {
+    background: #e0e0e0c2;
+    color: #1c7a32;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Логотип + назва */
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-title img {
+    width: 60px;
+    height: auto;
+}
+
+.site-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #1c7a32;
+}
+
+/* Меню ПК */
+.nav-desktop ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-desktop a {
+    text-decoration: none;
+    color: #1c7a32;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-desktop a:hover {
+    color: #0066cc;
+}
+
+/* Гамбургер */
+.hamburger {
+    display: none; /* схований на ПК */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    height: 3px;
+    background-color: #1c7a32;
+    border-radius: 2px;
+}
+
+/* Меню мобільне */
+.nav-mobile {
+    display: none;
+    background: #e0e0e0c2;
+}
+
+.nav-mobile ul {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-mobile a {
+    text-decoration: none;
+    color: #1c7a32;
+    font-weight: bold;
+    padding: 8px 20px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none; /* ховаємо ПК меню */
+    }
+    .hamburger {
+        display: flex; /* показуємо гамбургер */
+    }
+}
+
+.nav-mobile.show {
+    display: flex;
+    flex-direction: column;
+}
+</style>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.querySelector('.nav-mobile');
+    menu.classList.toggle('show');
+}
+</script>
+
+
 
 <div class="test-banner">
     <div class="test-text">тестовий режим</div>
