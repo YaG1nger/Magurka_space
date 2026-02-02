@@ -136,24 +136,28 @@ header {
         padding-left: 12px;
     }
 
-    /* === Будиночки === */
-    .houses-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-        margin-bottom: 0px;
-    }
+/* Загальні правила для рядків з картинками */
+.houses-row {
+    display: flex;
+    flex-wrap: wrap; /* картинки переходять на новий ряд, якщо не влазять */
+    gap: 10px;       /* відстань між картинками */
+    justify-content: center; /* центровані */
+    padding: 0 10px;
+}
 
+.houses-row img {
+    width: calc(33.33% - 10px); /* 3 картинки в ряд на ПК/планшет */
+    height: auto;
+    object-fit: cover;
+}
+
+/* Мобільні телефони */
+@media (max-width: 768px) {
     .houses-row img {
-        flex: 1 1 250px;
-        height: 600px;
-        object-fit: cover;
-        border: 2px solid #646464;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        cursor: pointer;
-        transition: 0.3s;
+        width: 100%; /* по одній картинці на ряд */
     }
+}
+
 
     .houses-row img:hover { transform: scale(1.05); }
 
@@ -173,15 +177,22 @@ header {
         margin-bottom: 0px;
     }
 
+.gallery img {
+    width: 100%;          /* картинка займає ширину контейнера */
+    max-height: 400px;    /* обмежує висоту, щоб не “вилазила” */
+    object-fit: cover;    /* обрізає зайве, центруючи зображення */
+    display: block;
+    margin-bottom: 15px;  /* відступ між фото */
+    border-radius: 5px;   /* трохи закруглені краї */
+}
+
+/* Адаптивність для мобільних */
+@media (max-width: 768px) {
     .gallery img {
-        flex: 1 1 250px;
-        height: 600px;
-        object-fit: cover;
-        border: 2px solid #646464;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        cursor: pointer;
-        transition: 0.3s;
+        max-height: 250px; /* менша висота на телефонах */
     }
+}
+
 
     .gallery img:hover { transform: scale(1.05); }
 
@@ -474,6 +485,58 @@ body {
   }
 }
 
+/* Мобільні стилі */
+@media (max-width: 768px) {
+    /* Ховаємо Hero */
+    .hero {
+        display: none;
+    }
+
+    /* Ховаємо плаваючі соцкнопки */
+    .social-buttons {
+        display: none;
+    }
+
+    /* Зменшуємо шрифт в header */
+    header h1 {
+        font-size: 32px;
+        padding: 20px 10px;
+    }
+
+    /* Налаштування секції Контакти */
+    #kontakty p {
+        font-size: 20px;
+    }
+
+    #kontakty a {
+        display: block;
+        margin-top: 8px;
+        font-weight: bold;
+        color: #1c7a32;
+        text-decoration: underline;
+    }
+}
+
+/* Мобільні телефони */
+@media (max-width: 768px) {
+    .photo-with-description {
+        flex-direction: column; /* картинка зверху, опис під нею */
+        align-items: center;    /* центр контенту */
+    }
+
+    .photo-with-description img {
+        width: 100%;    /* картинка на всю ширину */
+        height: auto;   /* зберігаємо пропорції */
+        margin-bottom: 10px; /* відступ між картинкою та описом */
+    }
+
+    .description {
+        width: 100%;       /* опис займає всю ширину */
+        height: auto;      /* автоматична висота */
+        padding: 10px;
+        margin: 0;
+    }
+}
 
 </style>
     
@@ -495,7 +558,7 @@ body {
   <a href="#galereya" onclick="closeMenu()">Галерея</a>
   <a href="Rules.html" onclick="closeMenu()">Правила</a>
   <a href="#question" onclick="closeMenu()">Часті запитання</a>
-  <a href="#kontakty" onclick="closeMenu()">Контакти</a>
+  <a href="#kontakty" onclick="closeMenu()">Контакти й Соцмережі</a>
 </nav>
 
 
@@ -512,7 +575,7 @@ body {
             <li><a href="#galereya">Галерея</a></li>
             <li><a href="Rules.html">Правила</a></li>
             <li><a href="#question">Часті запитання</a></li>
-            <li><a href="#kontakty">Контакти</a></li>
+            <li><a href="#kontakty">Контакти й Соцмережі</a></li>
 </header>
 
 <div class="hero">
@@ -674,14 +737,36 @@ body {
 
 .photo-with-description {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* текст знизу або справа */
     margin-top: 20px;
+    flex-wrap: wrap; /* щоб на мобільних переходили під картинку */
+    gap: 15px; /* відстань між картинками та описом */
 }
 
 .photo-with-description img {
-    width: 500px;
-    height: 400px;
-    object-fit: cover;
+    width: 500px;       /* фіксована ширина на ПК */
+    height: 400px;      /* фіксована висота на ПК */
+    object-fit: cover;  /* обрізає картинку по центру, щоб заповнити блок */
+    flex-shrink: 0;     /* не стискається при маленькому екрані */
+    border: 2px solid #646464;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Опис під картинкою на мобільних */
+@media (max-width: 768px) {
+    .photo-with-description {
+        flex-direction: column; /* картинка зверху, текст під нею */
+        align-items: center;
+    }
+    .photo-with-description img {
+        width: 100%;   /* підлаштовуємо під ширину екрану */
+        height: auto;  /* зберігаємо пропорції */
+    }
+    .description {
+        width: 100%;   /* текст на всю ширину */
+        height: auto;
+        padding: 10px;
+    }
 }
 
 .description {
@@ -754,6 +839,22 @@ body {
 .tg-widget:hover .tg-popup {
     opacity: 1;
     transform: translateX(0);
+}
+
+.email-block {
+    display: flex;
+    flex-wrap: wrap;         /* переносить елементи на новий рядок, якщо не влазить */
+    align-items: center;
+    gap: 10px;               /* відступ між email та кнопкою */
+    max-width: 100%;         /* обмежує ширину блоку */
+}
+
+.email-block span {
+    word-break: break-word;  /* переносить довгі слова (email) */
+}
+
+.email-block button {
+    flex-shrink: 0;          /* кнопка не стискається занадто сильно */
 }
 </style>
 
@@ -900,16 +1001,20 @@ body {
     <h2>Контакти</h2>
     <p>📍 Локація: <a href="https://maps.app.goo.gl/9BEUoBTTno6V4LKRA">Івано-Франківська область, селище Верховина, присілок Магурка, 7а</a></p>
     <p>📞 Телефон: <a href="tel:+380970701750">+38 097 070 17 50</a></p>
+    <div class="email-block">
     <p>📩 Email: 
         <span style="font-weight:500; color:#0066cc;">magurkaspace@gmail.com</span>
-        <button id="copy-btn" 
-                onclick="copyToClipboard()" 
-                style="margin-left: 12px; padding: 4px 10px; font-size: 0.9em; 
-                       background: #f0f0f0; border: 1px solid #ccc; border-radius: 6px;
-                       cursor: pointer; transition: all 0.2s;">
-            Скопіювати
-        </button>
     </p>
+    <button id="copy-btn" onclick="copyToClipboard()">
+        Скопіювати
+    </button>
+</div>
+
+    <h2>Ми в соцмережах</h2>
+    <p>Telegram (Бронювання тут): <a href="https://t.me/ваш_телеграм" target="_blank">@Magurka_space</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/magurka_space" target="_blank">magurka_space</a></p>
+    <p>TikTok: <a href="https://www.tiktok.com/@Magurka_space" target="_blank">@Magurka_space</a></p>
+
 </section>
 
 <script>
