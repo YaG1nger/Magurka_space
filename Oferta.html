@@ -167,18 +167,99 @@ header {
 <body>
 
 <header>
-    <h1>Будиночки для відпочинку Magurka_space</h1>
-    <nav>
-        <ul>
+    <div class="header-container">
+        <!-- Логотип ліворуч -->
+        <div class="logo">
+            <img src="LogoMs.png" alt="Magurka Space">
+            <h1>Magurka_space</h1>
+        </div>
+
+        <!-- Навігація праворуч -->
+        <nav class="nav-links">
             <ul>
-            <li><a href="index.html">Головна Сторінка</a></li>
-        </ul>
-    </nav>
-    <div>
-        <div class="fixed-logo">
-        <img src="LogoMs.png" alt="Magurka Space">
+                <li><a href="index.html">Головна Сторінка</a></li>
+                <li><a href="Rules.html">Правила</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
+
+<style>
+/* === Header контейнер === */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(224,224,224,0.8);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    padding: 15px 20px;
+}
+
+/* Флекс-контейнер для логотипа + навігації */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1600px;
+    margin: auto;
+}
+
+/* Логотип ліворуч */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Заголовок поруч з логотипом */
+.logo h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #1c7a32;
+}
+
+/* Навігаційні посилання праворуч */
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #1c7a32;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0f5220;
+}
+
+/* === Адаптивність для мобільних === */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
 
 <div class="test-banner">
     <div class="test-text">тестовий режим</div>
@@ -211,12 +292,11 @@ header {
 
         <h2>3. Права та обов’язки сторін</h2>
         <h4>Замовник зобов’язаний:</h4>
-        <p>3.1. Надсилати письмові замовлення на бронювання послуги оренди.</p>
-        <p>3.2. Своєчасно здійснювати оплату заброньованої послуги.</p>
-        <p>3.3. Бережно ставитися до майна в середині та зовні будинку, в випадку пошкодження – компенсувати вартість пошкодженої речі в повному обсязі.</p>
-        <p>3.4. Своєчасно здійснювати оплату заброньованих послуг.</p>
+        <p>● Надсилати письмові замовлення на бронювання послуги оренди.</p>
+        <p>● Своєчасно здійснювати оплату заброньованої послуги.</p>
+        <p>● Бережно ставитися до майна в середині та зовні будинку, в випадку пошкодження – компенсувати вартість пошкодженої речі в повному обсязі.</p>
 
-        <h4>Виконавець зобов’язаний:</h4>
+        <h4>Своєчасно здійснювати оплату заброньованих послуг. Виконавець зобов’язаний:</h4>
 
         <p>● Надати на офіційній сторінці комплексу інформацію про послуги оренди.</p>
         <p>● Приймати, опрацьовувати і підтверджувати замовлення.</p>
@@ -248,5 +328,4 @@ header {
 </footer>
 
 </body>
-
 </html>
