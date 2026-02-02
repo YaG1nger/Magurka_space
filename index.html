@@ -136,19 +136,25 @@ header {
         padding-left: 12px;
     }
 
-/* Загальні правила для рядків з картинками */
+/* адаптивна галерея по розміру фото */
 .houses-row {
-    display: flex;
-    flex-wrap: wrap; /* картинки переходять на новий ряд, якщо не влазять */
-    gap: 10px;       /* відстань між картинками */
-    justify-content: center; /* центровані */
-    padding: 0 10px;
+    column-count: 3;
+    column-gap: 20px;
+    padding: 20px;
 }
 
 .houses-row img {
-    width: calc(33.33% - 10px); /* 3 картинки в ряд на ПК/планшет */
-    height: auto;
-    object-fit: cover;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 18px;
+}
+
+/* 📱 Телефон — в один ряд */
+@media (max-width: 768px) {
+    .houses-row {
+        column-count: 1;
+    }
 }
 
 /* Мобільні телефони */
@@ -158,9 +164,6 @@ header {
     }
 }
 
-
-    .houses-row img:hover { transform: scale(1.05); }
-
     .house-description {
         margin: 0 auto;
         text-align: center;
@@ -168,22 +171,34 @@ header {
         color: #113b20;
     }
 
-    /* === Галерея === */
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-        margin-bottom: 0px;
-    }
+.gallery {
+    column-count: 3;
+    column-gap: 20px;
+    padding: 20px;
+}
 
 .gallery img {
-    width: 100%;          /* картинка займає ширину контейнера */
-    max-height: 400px;    /* обмежує висоту, щоб не “вилазила” */
-    object-fit: cover;    /* обрізає зайве, центруючи зображення */
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 14px;
     display: block;
-    margin-bottom: 15px;  /* відступ між фото */
-    border-radius: 5px;   /* трохи закруглені краї */
+}
+
+/* 📱 ТЕЛЕФОН — В РЯД */
+@media (max-width: 768px) {
+    .gallery {
+        column-count: 1;
+    }
+}
+
+.gallery img {
+    transition: filter 0.3s ease; /* плавний ефект */
+    filter: brightness(1);        /* нормальна яскравість */
+}
+
+.gallery img:hover {
+    filter: brightness(1.2);     /* підсвічування при наведенні */
+    box-shadow: 0 0 0 3px rgba(28, 122, 50, 0.55);
 }
 
 /* Адаптивність для мобільних */
@@ -192,9 +207,6 @@ header {
         max-height: 250px; /* менша висота на телефонах */
     }
 }
-
-
-    .gallery img:hover { transform: scale(1.05); }
 
     cite {
         display: block;
@@ -666,6 +678,16 @@ header {
         gap: 10px;
     }
 }
+
+.houses-row img {
+    transition: box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.houses-row img:hover {
+    box-shadow: 0 0 0 3px rgba(28, 122, 50, 0.55);
+    filter: brightness(1.05);
+}
+
 </style>
 
 <div class="hero">
@@ -1261,4 +1283,5 @@ document.addEventListener('keydown', e => {
 </div>
 
 </body>
+
 </html>
