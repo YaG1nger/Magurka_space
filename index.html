@@ -441,7 +441,7 @@ header {
 }
 
 .fixed-logo img {
-    width: 300px;
+    width: 400px;
     height: auto;
     user-select: none;
     -webkit-user-drag: none;
@@ -690,6 +690,21 @@ header {
     filter: brightness(1.05);
 }
 
+@media (min-width: 769px) {
+
+    .houses-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    /* Конкретно Photo-House5 */
+    .houses-row img[src*="Photo-House5"] {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+}
 </style>
 
 <div class="hero">
@@ -703,13 +718,16 @@ header {
         <img src="https://yag1nger.github.io/Magurka_space/Photo-House2.png" alt="Будиночок 2">
         <img src="https://yag1nger.github.io/Magurka_space/Photo-House3.jpg" alt="Будиночок 3">
         <img src="https://yag1nger.github.io/Magurka_space/Photo-House4.png" alt="Будиночок 4">
-        <img src="https://yag1nger.github.io/Magurka_space/Photo-House5.jpg" alt="Будиночок 5">
+        <img src="https://yag1nger.github.io/Magurka_space/Photo-House8.jpg" alt="Будиночок 8">
         <img src="https://yag1nger.github.io/Magurka_space/Photo-House6.jpg" alt="Будиночок 6">
         <img src="https://yag1nger.github.io/Magurka_space/Photo-House7.jpg" alt="Будиночок 7">
-        <img src="https://yag1nger.github.io/Magurka_space/Photo-House8.jpg" alt="Будиночок 8">
+        <img src="https://yag1nger.github.io/Magurka_space/Photo-House5.jpg" alt="Будиночок 5">
     </div>
     <div class="house-description">
         <p>Magurka_space - це 6 комфортабельних та гостинних будиночків, з тераси яких відкривається неймовірно красивий краєвид на Чорногірський хребет. Кожен будиночок має кухню, повністю укомплектовану всім необхідним для приготування їжі. В кожному будинку є: індукційна плита, витяжка, холодильник, електрочайник, набір кастрюль та сковорідок, посуд та прибори. Взимку у нас тепло, так як є обігрівач, кондиціонер на камін-пічка, який створить неймовірно романтичну атмосферу з потріскуванням вогню. В будиночках є смарт-проектор, настільні ігри та книги. В санвузлі є душова кабіна з тропічним душем, рушникосушка, фен для волосся, індиаідуальні засоби гігієни, шампуль, рідке мило для рук, туалетний папір, чисті рушники, халати та капці. На території, біля кожного будиночку, є мангальна зона, шампури та решітка для барбекю. Також кожен будиночок має велику терасу на якій знаходиться чан-джакузі.</p>
+        <h1>Вартість проживання:</h1>
+        <p>✨ 1 ніч - 5500 грн за 2 осіб,</p>
+        <p>✨ від 2 ночей - 5000 грн/ніч за 2 осіб</p>
     </div>
 </section>
 
