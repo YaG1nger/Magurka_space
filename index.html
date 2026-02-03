@@ -884,7 +884,7 @@ header {
 @media (max-width: 768px) {
 
     .photo-with-description {
-        flex-direction: column;     /* текст під картинкою */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
@@ -900,11 +900,12 @@ header {
     }
 
     .description .title {
-        font-size: 20px;
+        font-size: 19px; /* було 20 */
     }
 
     .description .text {
-        font-size: 15px;
+        font-size: 14px;
+        line-height: 1.6;     /* щоб легше читалось */
     }
 }
 
@@ -1312,5 +1313,6 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
+
 
 
