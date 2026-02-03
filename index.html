@@ -854,20 +854,20 @@ header {
     display: flex;
     align-items: center;
     gap: 30px;
-    margin: 40px 0;
+    margin: 50px 0;
 }
 
 /* Картинка */
 .photo-with-description img {
     width: 420px;
-    height: 260px;
+    height: 300px;
     object-fit: cover;
     border-radius: 12px;
 }
 
 /* Текст */
 .description {
-    max-width: 600px;
+    max-width: 1180px;
 }
 
 .description .title {
@@ -900,13 +900,30 @@ header {
     }
 
     .description .title {
-        font-size: 19px; /* було 20 */
+        font-size: 15px; /* було 20 */
     }
 
     .description .text {
-        font-size: 14px;
+        font-size: 5px;
         line-height: 1.6;     /* щоб легше читалось */
     }
+}
+
+@media (max-width: 768px) {
+
+    .photo-with-description .title {
+        font-size: 20px !important;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .photo-with-description .description p {
+        font-size: 14px !important;
+    }
+
 }
 
 .description {
@@ -1313,6 +1330,3 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
-
-
-
