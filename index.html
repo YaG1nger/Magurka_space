@@ -65,7 +65,7 @@ function closeMenu() {
     left: 0;
     width: 100%;
     height: 45px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
     overflow: hidden;
     z-index: 5000;
     pointer-events: none;
@@ -552,27 +552,6 @@ body {
     }
 }
 
-/* Мобільні телефони */
-@media (max-width: 768px) {
-    .photo-with-description {
-        flex-direction: column; /* картинка зверху, опис під нею */
-        align-items: center;    /* центр контенту */
-    }
-
-    .photo-with-description img {
-        width: 100%;    /* картинка на всю ширину */
-        height: auto;   /* зберігаємо пропорції */
-        margin-bottom: 10px; /* відступ між картинкою та описом */
-    }
-
-    .description {
-        width: 100%;       /* опис займає всю ширину */
-        height: auto;      /* автоматична висота */
-        padding: 10px;
-        margin: 0;
-    }
-}
-
 /* Ховаємо меню в header ТІЛЬКИ на телефонах */
 @media (max-width: 768px) {
     .nav-links {
@@ -870,37 +849,62 @@ header {
     padding: 20px;
 }
 
+/* ===== Дозвілля блок ===== */
 .photo-with-description {
     display: flex;
-    align-items: flex-start; /* текст знизу або справа */
-    margin-top: 20px;
-    flex-wrap: wrap; /* щоб на мобільних переходили під картинку */
-    gap: 15px; /* відстань між картинками та описом */
+    align-items: center;
+    gap: 30px;
+    margin: 40px 0;
 }
 
+/* Картинка */
 .photo-with-description img {
-    width: 500px;       /* фіксована ширина на ПК */
-    height: 400px;      /* фіксована висота на ПК */
-    object-fit: cover;  /* обрізає картинку по центру, щоб заповнити блок */
-    flex-shrink: 0;     /* не стискається при маленькому екрані */
-    border: 2px solid #646464;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    width: 420px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
-/* Опис під картинкою на мобільних */
+/* Текст */
+.description {
+    max-width: 600px;
+}
+
+.description .title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.description .text {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* 📱 Телефони */
 @media (max-width: 768px) {
+
     .photo-with-description {
-        flex-direction: column; /* картинка зверху, текст під нею */
+        flex-direction: column;     /* текст під картинкою */
         align-items: center;
+        text-align: center;
     }
+
     .photo-with-description img {
-        width: 100%;   /* підлаштовуємо під ширину екрану */
-        height: auto;  /* зберігаємо пропорції */
+        width: 90%;
+        max-width: 320px;
+        height: 180px;
     }
+
     .description {
-        width: 100%;   /* текст на всю ширину */
-        height: auto;
-        padding: 10px;
+        width: 90%;
+    }
+
+    .description .title {
+        font-size: 20px;
+    }
+
+    .description .text {
+        font-size: 15px;
     }
 }
 
@@ -1308,4 +1312,5 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
+
 
