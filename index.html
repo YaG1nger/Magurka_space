@@ -184,27 +184,50 @@ header {
     display: block;
 }
 
-/* 📱 ТЕЛЕФОН — В РЯД */
+/* 📱 Телефони */
 @media (max-width: 768px) {
+
+    /* Галерея */
     .gallery {
-        column-count: 1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 картинки в ряд */
+        gap: 10px;
     }
-}
 
-.gallery img {
-    transition: filter 0.3s ease; /* плавний ефект */
-    filter: brightness(1);        /* нормальна яскравість */
-}
-
-.gallery img:hover {
-    filter: brightness(1.2);     /* підсвічування при наведенні */
-    box-shadow: 0 0 0 3px rgba(28, 122, 50, 0.55);
-}
-
-/* Адаптивність для мобільних */
-@media (max-width: 768px) {
     .gallery img {
-        max-height: 250px; /* менша висота на телефонах */
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+    }
+
+    /* Будиночки */
+    .houses-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .houses-row img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+    }
+
+    /* Зменшуємо текст */
+    section {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 15px;
     }
 }
 
@@ -586,7 +609,7 @@ body {
         <!-- Логотип ліворуч -->
         <div class="logo">
             <img src="LogoMs.png" alt="Magurka Space">
-            <h1>Magurka_space</h1>
+            <h1>Будиночки для відпочинку Magurka_space</h1>
         </div>
 
         <!-- Навігація праворуч -->
@@ -1285,3 +1308,4 @@ document.addEventListener('keydown', e => {
 </body>
 
 </html>
+
