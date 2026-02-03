@@ -6,7 +6,7 @@
 <title>Будиночки для відпочинку Magurka Space - test Site</title>
     <link rel="icon" type="image/png" sizes="128x128" href="logo-magurka 128x12828x12.png">
 
-    <script>
+<script>
 function toggleMenu() {
   document.getElementById("mobileMenu").classList.toggle("active");
 }
@@ -426,27 +426,11 @@ header {
     transform: translateY(-50%) translateX(-5px); /* трохи підсунемо до кнопки */
 }
 
-/* === LOGO === */
-.fixed-logo {
-    position: absolute;        /* було fixed → стало absolute */
-    top: 50%;
-    left: 100px;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
 /* резервуємо місце під логотип */
 header {
     position: sticky;
 }
 
-.fixed-logo img {
-    width: 400px;
-    height: auto;
-    user-select: none;
-    -webkit-user-drag: none;
-    pointer-events: none;
-}
 body {
     overflow-x: hidden; /* прибираємо горизонтальний скрол */
 }
@@ -588,7 +572,7 @@ body {
         <!-- Логотип ліворуч -->
         <div class="logo">
             <img src="LogoMs.png" alt="Magurka Space">
-            <h1>Будиночки для відпочинку Magurka_space</h1>
+            <h1>Будиночки для відпочинку <span style="color: rgb(50, 50, 50);">Magurka_space</span></h1>
         </div>
 
         <!-- Навігація праворуч -->
@@ -633,7 +617,7 @@ header {
 }
 
 .logo img {
-    width: 80px;
+    width: 150px;
     height: auto;
     user-select: none;
     pointer-events: none;
@@ -1039,11 +1023,11 @@ header {
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-1.jpg" alt="Фото з галереї 1">
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-3.jpg" alt="Фото з галереї 2">
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-4.jpg" alt="Фото з галереї 3">
-        <img src="https://yag1nger.github.io/Magurka_space/Gallery-5.jpg" alt="Фото з галереї 4">
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-6.jpg" alt="Фото з галереї 5">
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-7.jpg" alt="Фото з галереї 6">
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-8.jpg" alt="Фото з галереї 7">
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-9.jpg" alt="Фото з галереї 8">
+        <img src="https://yag1nger.github.io/Magurka_space/Gallery-5.jpg" alt="Фото з галереї 4">
     </div>
 </section>
 
@@ -1072,7 +1056,7 @@ header {
             <span class="arrow">&#9650;</span>
         </button>
         <div class="accordion-content">
-            <p>Дізнатися вільні дати та забронювати  будиночок ви можете, написавши нам на Telegram чи Viber +380970701750</p>
+            <p>Дізнатися вільні дати та забронювати  будиночок ви можете, написавши нам на Telegram чи Viber </a></p><a href="https://t.me/Magurka_space">+380970701750</a></p>, написавши нам або
         </div>
     </div>
     <div class="accordion-item">
@@ -1086,7 +1070,7 @@ header {
     </div>
     <div class="accordion-item">
         <button class="accordion-button">
-            <span>Що входить у вартість будиночку?</span>
+            <span>Що входить у вартість проживання?</span>
             <span class="arrow">&#9650;</span>
         </button>
         <div class="accordion-content">
@@ -1099,7 +1083,7 @@ header {
             <span class="arrow">&#9650;</span>
         </button>
         <div class="accordion-content">
-            <p>У нас чан-джакузі є біля кожного будиночку на терасі. Вартість чану 2000 грн за сеанс, можете користуватися цілий вечір. Про те, що хочете замовити чан, просимо попередити за 3-4 години, щоб ми могли його для вас підготувати та нагріти. Ми вам готуємо чан, доводимо до потрібної температури, орієнтовно на 18:00, далі ми залишаємо вам дрова і ви самі підтримуєте вогонь в пічці, хоч цілу ніч.</p>
+            <p>У нас чан-джакузі є біля кожного будиночку на терасі. Вартість 2000 грн за сеанс, можна користуватися цілий вечір. Замовлення просимо робити за 3-5 годин, щоб ми могли його для вас підготувати. Нагріваємо чан до потрібної температури, проводимо короткий інструктаж, залишаємо вам дрова і ви самі підтримуєте вогонь в пічці, хоч цілу ніч.</p>
         </div>
     </div>
     <div class="accordion-item">
@@ -1108,7 +1092,7 @@ header {
             <span class="arrow">&#9650;</span>
         </button>
         <div class="accordion-content">
-            <p>Маємо попередити, що ми знаходимося майже на вершині гори, то доїзд до нас, в період дощів чи снігу, можливий лише на повнопривідному авто і з дуже вправним водієм.За умови сухої погоди до нас виїде кроссовер, кліренс не менше 18-20 см. Тому, якщо ви їдете до нас на власному автомобілі, рекомендуємо залишити ваше авто на стоянці навпроти Музею гуцульської магії(безкоштовна парковка), на території готелю Водограй Карпат (100 грн/ніч)по дорозі до нас, взяти таксі-джип (вартість 700 грн) він з легкістю доставить вас до нашої локації. Про стан дороги, просимо уточнити у нашої керуючої в день заїзду.</p>
+            <p>Маємо попередити, що ми знаходимося майже на вершині гори, то доїзд до нас, в період дощів чи снігу, можливий лише на повнопривідному авто і з дуже вправним водієм. За умови сухої погоди до нас виїде кроссовер, кліренс не менше 18-20 см. Тому, якщо ви їдете до нас на власному автомобілі, рекомендуємо залишити ваше авто на стоянці навпроти Музею гуцульської магії(безкоштовна парковка), або на території готелю Водограй Карпат (100 грн/ніч) по дорозі до нас, взяти таксі-джип (вартість 700 грн) він з легкістю доставить вас до нашої локації. Про стан дороги, просимо уточнити у нашої керуючої в день заїзду.</p>
         </div>
     </div>
     <div class="accordion-item">
@@ -1188,7 +1172,7 @@ header {
 </div>
 
     <h2>Ми в соцмережах</h2>
-    <p>Telegram (Бронювання тут): <a href="https://t.me/ваш_телеграм" target="_blank">@Magurka_space</a></p>
+    <p>Telegram (Бронювання тут): <a href="https://t.me/Magurka_space" target="_blank">@Magurka_space</a></p>
     <p>Instagram: <a href="https://www.instagram.com/magurka_space" target="_blank">magurka_space</a></p>
     <p>TikTok: <a href="https://www.tiktok.com/@Magurka_space" target="_blank">@Magurka_space</a></p>
 
