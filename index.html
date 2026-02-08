@@ -57,46 +57,6 @@ function closeMenu() {
 
         pointer-events: auto;
 }
-
-    /* ===== TEST MODE BANNER ===== */
-.test-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 45px;
-    background: rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-    z-index: 5000;
-    pointer-events: none;
-}
-
-.test-text {
-    position: absolute;
-    white-space: nowrap;
-    font-size: 28px;
-    font-weight: bold;
-    color: red;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: flyText 15s linear infinite;
-}
-
-@keyframes flyText {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
-/* щоб header не залазив під банер */
-header {
-    margin-top: 45px;
-}
-
-
     nav ul {
         font-size: 30px;
         list-style: none;
@@ -383,6 +343,16 @@ header {
     background: linear-gradient(135deg, #00f2ea, #ff0050);
 }
 
+/* Для Facebook градієнт як у TG */
+.facebook-btn {
+    background: rgb(255, 255, 255);
+}
+
+.facebook-btn img{
+    width: 101%;
+    height: 101%;
+}
+
 /* Для Instagram градієнт */
 .ig-btn {
     background: radial-gradient(circle at 30% 110%,
@@ -544,10 +514,6 @@ body {
 }
 
 </style>
-    
-<div class="test-banner">
-    <div class="test-text">тестовий режим</div>
-</div>
 
 <!-- BURGER BUTTON -->
 <div class="burger" onclick="toggleMenu()">
@@ -561,7 +527,7 @@ body {
   <a href="#nashi-budinochky" onclick="closeMenu()">Будиночки</a>
   <a href="#shho-robyty" onclick="closeMenu()">Дозвілля</a>
   <a href="#galereya" onclick="closeMenu()">Галерея</a>
-  <a href="Rules.html" onclick="closeMenu()">Правила</a>
+  <a href="Rules.html" onclick="closeMenu()">Вартість та умови</a>
   <a href="#question" onclick="closeMenu()">Часті запитання</a>
   <a href="#kontakty" onclick="closeMenu()">Контакти й Соцмережі</a>
 </nav>
@@ -581,8 +547,8 @@ body {
                 <li><a href="#nashi-budinochky">Будинки</a></li>
                 <li><a href="#shho-robyty">Дозвілля</a></li>
                 <li><a href="#galereya">Галерея</a></li>
-                <li><a href="Rules.html">Правила</a></li>
-                <li><a href="#question">Часті Запитання</a></li>
+                <li><a href="Rules.html">Вартість та умови</a></li>
+                <li><a href="#question">Часті запитання</a></li>
                 <li><a href="#kontakty">Контакти</a></li>
             </ul>
         </nav>
@@ -634,7 +600,7 @@ header {
 .nav-links ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -643,7 +609,7 @@ header {
     text-decoration: none;
     font-weight: bold;
     color: #1c7a32;
-    font-size: 18px;
+    font-size: 25px;
     transition: color 0.3s;
 }
 
@@ -689,6 +655,54 @@ header {
     }
 
 }
+
+.about-list {
+    margin-top: 30px;
+    text-align: left;
+    max-width: 1200px;
+}
+
+.about-intro {
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+.about-list h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #1c7a32;
+}
+
+.about-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-list li {
+    font-size: 24px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(28, 122, 50, 0.25);
+}
+
+/* 📱 Мобільна адаптація */
+@media (max-width: 768px) {
+
+    .about-intro {
+        font-size: 16px;
+    }
+
+    .about-list h3 {
+        font-size: 20px;
+    }
+
+    .about-list li {
+        font-size: 15px;
+    }
+}
+
+    .price-section p{
+        font-size: 30px;
+    }
 </style>
 
 <div class="hero">
@@ -707,13 +721,25 @@ header {
         <img src="https://yag1nger.github.io/Magurka_space/Photo-House7.jpg" alt="Будиночок 7">
         <img src="https://yag1nger.github.io/Magurka_space/Photo-House5.jpg" alt="Будиночок 5">
     </div>
-    <div class="house-description">
-        <p>Magurka_space - це 6 комфортабельних та гостинних будиночків, з тераси яких відкривається неймовірно красивий краєвид на Чорногірський хребет. Кожен будиночок має кухню, повністю укомплектовану всім необхідним для приготування їжі. В кожному будинку є: індукційна плита, витяжка, холодильник, електрочайник, набір кастрюль та сковорідок, посуд та прибори. Взимку у нас тепло, так як є обігрівач, кондиціонер на камін-пічка, який створить неймовірно романтичну атмосферу з потріскуванням вогню. В будиночках є смарт-проектор, настільні ігри та книги. В санвузлі є душова кабіна з тропічним душем, рушникосушка, фен для волосся, індиаідуальні засоби гігієни, шампуль, рідке мило для рук, туалетний папір, чисті рушники, халати та капці. На території, біля кожного будиночку, є мангальна зона, шампури та решітка для барбекю. Також кожен будиночок має велику терасу на якій знаходиться чан-джакузі.</p>
-        <h1>Вартість проживання:</h1>
-        <p>✨ 1 ніч - 5500 грн за 2 осіб,</p>
-        <p>✨ від 2 ночей - 5000 грн/ніч за 2 осіб</p>
-    </div>
-</section>
+<div class="about-list">
+
+    <p class="about-intro">
+       <strong>Magurka_space</strong> — це 6 комфортних та гостинних будиночків із неймовірним видом на Чорногірський хребет.
+        Всі будиночки створені для затишного відпочинку
+        в будь-яку пору року та мають все необхідне для проживання.
+    </p>
+
+    <ul>
+        <h3>У кожному будиночку є:</h3>
+        <li><strong>✅ Кухня:</strong> індукційна плита, витяжка, холодильник, мікрофильова піч, електрочайник, посуд, каструлі та сковорідки, базові спеції(сіль, перець, олія), чай, кава, цукор.</li>
+        <li><strong>✅ Комфорт:</strong> обігрівач, кондиціонер, камін-пічка з ефектом живого вогню.</li>
+        <li><strong>✅ Дозвілля:</strong> смарт-проектор, настільні ігри, книги.</li>
+        <li><strong>✅ Санвузол:</strong> тропічний душ, фен, рушники, халати, капці, засоби гігієни, аптечка.</li>
+        <li><strong>✅ Тераса:</strong> велика тераса з чаном-джакузі.</li>
+        <li><strong>✅ Барбекю:</strong> мангал, шампури, решітка для барбекю, дрова біля кожного будиночку.</li>
+    </ul>
+
+</div>
 
 <section id="shho-robyty">
     <h2>Дозвілля</h2>
@@ -821,7 +847,7 @@ header {
         <div class="description">
             <h3 class="title">Відвідати музеї</h3>
             <p class="text">ㅤ</p>
-            <p class="text">Відчути автентичність гуцульської культури та дізнатися більше про її духовну й історичну спадщину допоможуть музеї. У Верховинському районі величезна кількість хат-музеїв: про деякі можна почути на кожному кроці, інші приховані від туристів. Найпопулярніші:  Музей гуцульської магії, музей фільму Тіні забутих предків, ці два музеї- по дорозі до наших будиночків!  Музей штопора, музей-сироварня Хата-стая, музей кінофільму Олекса Довбуш, музей Ліжникарства, музей Вишивки та багато інших. У Верховині їх є близько 40!</p>
+            <p class="text">У Верховинському районі величезна кількість хат-музеїв: про деякі можна почути на кожному кроці, інші приховані від туристів. Найпопулярніші:  Музей гуцульської магії, музей фільму Тіні забутих предків, ці два музеї- по дорозі до наших будиночків!  Музей штопора, музей-сироварня Хата-стая, музей кінофільму Олекса Довбуш, музей Вишивки та багато інших. У Верховині їх є близько 40!</p>
         </div>
     </div>
 
@@ -861,15 +887,15 @@ header {
 
 /* Картинка */
 .photo-with-description img {
-    width: 420px;
-    height: 300px;
+    width: 480px;
+    height: 480px;
     object-fit: cover;
     border-radius: 12px;
 }
 
 /* Текст */
 .description {
-    max-width: 1180px;
+    max-width: 1200px;
 }
 
 .description .title {
@@ -1015,6 +1041,24 @@ header {
 .email-block button {
     flex-shrink: 0;          /* кнопка не стискається занадто сильно */
 }
+
+@media (min-width: 769px) {
+    .gallery-big {
+        column-span: all;
+        width: 100%;
+        display: block;
+        margin: 30px auto;
+    }
+}
+
+.gallery img {
+    transition: box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.gallery img:hover {
+    box-shadow: 0 0 0 3px rgba(28, 122, 50, 0.55);
+    filter: brightness(1.05);
+}
 </style>
 
 <section id="galereya">
@@ -1025,9 +1069,8 @@ header {
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-4.jpg" alt="Фото з галереї 3">
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-6.jpg" alt="Фото з галереї 5">
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-7.jpg" alt="Фото з галереї 6">
-        <img src="https://yag1nger.github.io/Magurka_space/Gallery-8.jpg" alt="Фото з галереї 7">
         <img src="https://yag1nger.github.io/Magurka_space/Gallery-9.jpg" alt="Фото з галереї 8">
-        <img src="https://yag1nger.github.io/Magurka_space/Gallery-5.jpg" alt="Фото з галереї 4">
+        <img src="https://yag1nger.github.io/Magurka_space/Gallery-5.jpg" alt="Фото з галереї 4" class="gallery-big">
     </div>
 </section>
 
@@ -1157,26 +1200,119 @@ header {
 </section>
 
 <section id="kontakty">
+  <div class="contact-container">
+    <!-- Текст ліворуч -->
+    <div class="contact-text">
     <h2>Контакти</h2>
-    <p>📍 Локація: <a href="https://maps.app.goo.gl/9BEUoBTTno6V4LKRA">Івано-Франківська область, селище Верховина, присілок Магурка, 7а</a></p>
-    <div class="Phone">
-    <p>📞 Телефон: <a href="tel:+380970701750">+38 097 070 17 50</a></p>
-    <div class="email-block">
-    <p>📩 Email: 
-        <span style="font-weight:500; color:#0066cc;">magurkaspace@gmail.com</span>
-    </p>
-    <button id="copy-btn" onclick="copyToClipboard()">
-            Скопіювати
-        </button>
-    </div>
+    <p>Наша адреса: <a href="https://maps.app.goo.gl/D5Sd9us4sM1Nfdwg7" target="_blank">Івано-Франківська область, селище Верховина, присілок Магурка, 7а</a>
+</p>
+    <p>Телефон: <a href="tel:+380970701750">+380970701750</a></p>
+<div class="email-block">
+    <span id="email">magurkaspace@gmail.com</span>
+    <button id="copyBtn" onclick="copyEmail()">Скопіювати</button>
 </div>
 
+<script>
+function copyEmail() {
+    const emailText = document.getElementById('email').innerText;
+    const btn = document.getElementById('copyBtn');
+
+    navigator.clipboard.writeText(emailText).then(() => {
+        // Змінюємо текст кнопки та колір
+        btn.innerText = "Скопійовано";
+        btn.style.backgroundColor = "#1c7a32"; // зелена
+        btn.style.color = "white";
+
+        // Через 2 секунди повертаємо назад
+        setTimeout(() => {
+            btn.innerText = "Скопіювати";
+            btn.style.backgroundColor = "white";
+            btn.style.color = "#1c7a32";
+        }, 2000);
+    }).catch(err => {
+        alert('Помилка при копіюванні: ' + err);
+    });
+}
+</script>
+
+<style>
+.email-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.email-block button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid #424242;
+    background-color: white;
+    color: #138d2f;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.email-block button:hover {
+    background-color: #f0f0f0;
+}
+</style>
+
+    </div>
+
+    <!-- Карта праворуч -->
+    <div class="contact-map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d894.4443265080093!2d24.79581326970235!3d48.13854899820275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDjCsDA4JzE4LjgiTiAyNMKwNDcnNDcuMyJF!5e1!3m2!1suk!2suk!4v1770547555328!5m2!1suk!2suk" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
     <h2>Ми в соцмережах</h2>
-    <p>Telegram (Бронювання тут): <a href="https://t.me/Magurka_space" target="_blank">@Magurka_space</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/magurka_space" target="_blank">magurka_space</a></p>
-    <p>TikTok: <a href="https://www.tiktok.com/@Magurka_space" target="_blank">@Magurka_space</a></p>
+    <p>Telegram (Бронювання тут): <a href="https://t.me/Magurka_space">t.me/Magurka_space</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/magurka_space/">www.instagram.com/magurka_space</a></p>
+    <p>Tiktok: <a href="https://www.tiktok.com/@magurka_space">www.tiktok.com/@magurka_space</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/profile.php?id=61576721188296">www.facebook.com/profile.php?id=61576721188296</a></p>
 
 </section>
+
+<style>
+.contact-container {
+  display: flex;
+  gap: 30px; /* відстань між текстом і картою */
+  align-items: flex-start; /* вирівнювання по верхньому краю */
+}
+
+.contact-text {
+  flex: 1; /* текст займає половину ширини */
+  font-size: 20px;
+}
+
+.contact-map {
+  flex: 1; /* карта займає половину ширини */
+  min-width: 300px; /* не буде занадто маленькою */
+}
+
+/* Адаптив для телефонів */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* текст над картою на маленьких екранах */
+  }
+
+  .contact-map iframe {
+    width: 100%;
+    height: 300px;
+  }
+}
+</style>
 
 <script>
 function copyToClipboard() {
@@ -1320,7 +1456,9 @@ document.addEventListener('keydown', e => {
             0 32.9 2.6 102.9-9 132.4z"/>
         </svg>
     </a>
-
+    <a href="https://www.facebook.com/profile.php?id=61576721188296" target="_blank" class="social-btn facebook-btn">
+        <img src="Facebook.png" alt="TikTok">
+    </a>
 <!-- Telegram кнопка -->
 <a href="https://t.me/Magurka_space" target="_blank" class="social-btn tg-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
