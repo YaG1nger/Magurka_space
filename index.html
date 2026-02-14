@@ -38,7 +38,6 @@ function closeMenu() {
         margin-left: 0px;
         color: #1c7a32;
         padding: 30px 0px;
-        text-align: center;
         position: sticky;
         top: 0;
         z-index: 1000;
@@ -52,11 +51,10 @@ function closeMenu() {
         -webkit-user-select: none;
         -moz-user-select: none;
        -ms-user-select: none;
-
         -webkit-user-drag: none;
-
         pointer-events: auto;
 }
+
     nav ul {
         font-size: 30px;
         list-style: none;
@@ -74,8 +72,6 @@ function closeMenu() {
         padding: 6px 12px;
         transition: 0.3s;
     }
-
-    nav a:hover { background-color: rgba(255,255,255,0.2); }
 
     .hero { max-width: 1980px; height: 1020px; overflow: hidden; margin: 60px auto; padding: 0; }
     .hero img { width: 100%; height: 100%; }
@@ -512,7 +508,6 @@ body {
         display: none;
     }
 }
-
 </style>
 
 <!-- BURGER BUTTON -->
@@ -535,16 +530,16 @@ body {
 
 <header>
     <div class="header-container">
-        <!-- Логотип ліворуч -->
+        <!-- Логотип + назва ліворуч -->
         <div class="logo">
             <img src="LogoMs.png" alt="Magurka Space">
-            <h1>Будиночки для відпочинку <span style="color: rgb(50, 50, 50);">Magurka_space</span></h1>
+            <h1>будиночки для Відпочинку <span style="color: rgb(50, 50, 50);">Magurka_space</span></h1>
         </div>
 
         <!-- Навігація праворуч -->
         <nav class="nav-links">
             <ul>
-                <li><a href="#nashi-budinochky">Будинки</a></li>
+                <li><a href="#nashi-budinochky">Будиночки</a></li>
                 <li><a href="#shho-robyty">Дозвілля</a></li>
                 <li><a href="#galereya">Галерея</a></li>
                 <li><a href="Rules.html">Вартість та умови</a></li>
@@ -566,16 +561,17 @@ header {
     padding: 15px 20px;
 }
 
-/* Флекс-контейнер для логотипа + навігації */
+/* Контейнер header */
 .header-container {
     display: flex;
+    justify-content: space-between; /* ліворуч - logo, праворуч - nav */
     align-items: center;
-    justify-content: space-between;
     max-width: 1600px;
     margin: auto;
+    padding: 10px 20px;
 }
 
-/* Логотип ліворуч */
+/* Логотип + назва */
 .logo {
     display: flex;
     align-items: center;
@@ -585,24 +581,20 @@ header {
 .logo img {
     width: 150px;
     height: auto;
-    user-select: none;
-    pointer-events: none;
 }
 
-/* Заголовок поруч з логотипом */
 .logo h1 {
     font-size: 28px;
     margin: 0;
     color: #1c7a32;
 }
 
-/* Навігаційні посилання праворуч */
 .nav-links ul {
-    list-style: none;
     display: flex;
     gap: 30px;
     margin: 0;
     padding: 0;
+    flex-wrap: nowrap; /* не дозволяє перенос елементів на новий рядок */
 }
 
 .nav-links a {
@@ -610,14 +602,15 @@ header {
     font-weight: bold;
     color: #1c7a32;
     font-size: 25px;
+    white-space: nowrap; /* <-- ключове: текст не переноситься */
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #0f5220;
+    color:#0f5220; /* можна зробити зміною кольору при наведенні */
 }
 
-/* === Адаптивність для мобільних === */
+/* Адаптивність для мобільних */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -1034,6 +1027,17 @@ header {
     max-width: 100%;         /* обмежує ширину блоку */
 }
 
+h2 {
+    display: inline-block;  /* щоб текст був в один ряд */
+    font-size: 36px;
+    white-space: nowrap;    /* заборона переносу */
+    overflow: hidden;       /* обрізає зайвий текст, якщо не влазить */
+    text-overflow: ellipsis; /* додає три крапки, якщо текст не влазить */
+    max-width: 100%;         /* обмежує ширину контейнера */
+}
+
+
+
 .email-block span {
     word-break: break-word;  /* переносить довгі слова (email) */
 }
@@ -1059,6 +1063,7 @@ header {
     box-shadow: 0 0 0 3px rgba(28, 122, 50, 0.55);
     filter: brightness(1.05);
 }
+
 </style>
 
 <section id="galereya">
@@ -1204,11 +1209,11 @@ header {
     <!-- Текст ліворуч -->
     <div class="contact-text">
     <h2>Контакти</h2>
-    <p>Наша адреса: <a href="https://maps.app.goo.gl/D5Sd9us4sM1Nfdwg7" target="_blank">Івано-Франківська область, селище Верховина, присілок Магурка, 7а</a>
+    <p>📍Локація: <a href="https://maps.app.goo.gl/D5Sd9us4sM1Nfdwg7" target="_blank">Івано-Франківська область, селище Верховина, присілок Магурка, 7а</a>
 </p>
-    <p>Телефон: <a href="tel:+380970701750">+380970701750</a></p>
+    <p>📞Телефон: <a href="tel:+380970701750">+380970701750</a></p>
 <div class="email-block">
-    <span id="email">magurkaspace@gmail.com</span>
+    <span id="email">📩magurkaspace@gmail.com</span>
     <button id="copyBtn" onclick="copyEmail()">Скопіювати</button>
 </div>
 
@@ -1258,6 +1263,7 @@ function copyEmail() {
 .email-block button:hover {
     background-color: #f0f0f0;
 }
+
 </style>
 
     </div>
@@ -1267,7 +1273,7 @@ function copyEmail() {
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d894.4443265080093!2d24.79581326970235!3d48.13854899820275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDjCsDA4JzE4LjgiTiAyNMKwNDcnNDcuMyJF!5e1!3m2!1suk!2suk!4v1770547555328!5m2!1suk!2suk" 
         width="100%" 
-        height="450" 
+        height="400" 
         style="border:0;" 
         allowfullscreen="" 
         loading="lazy" 
@@ -1278,9 +1284,9 @@ function copyEmail() {
 
     <h2>Ми в соцмережах</h2>
     <p>Telegram (Бронювання тут): <a href="https://t.me/Magurka_space">t.me/Magurka_space</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/magurka_space/">www.instagram.com/magurka_space</a></p>
-    <p>Tiktok: <a href="https://www.tiktok.com/@magurka_space">www.tiktok.com/@magurka_space</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/profile.php?id=61576721188296">www.facebook.com/profile.php?id=61576721188296</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/magurka_space/">magurka_space</a></p>
+    <p>Tiktok: <a href="https://www.tiktok.com/@magurka_space">@magurka_space</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/profile.php?id=61576721188296">magurka_space</a></p>
 
 </section>
 
@@ -1298,7 +1304,7 @@ function copyEmail() {
 
 .contact-map {
   flex: 1; /* карта займає половину ширини */
-  min-width: 300px; /* не буде занадто маленькою */
+  min-width: 300px;
 }
 
 /* Адаптив для телефонів */
